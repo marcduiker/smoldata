@@ -1,0 +1,7 @@
+GET http://localhost:7071/api/Person
+
+### 
+GET http://localhost:7071/api/Point?count=10
+
+### 
+GET http://localhost:7071/api/Transaction?count=2
