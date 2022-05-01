@@ -2,4 +2,4 @@
 
 An homage to smol data sets &lt;3.
 
-![Two little chicks](media/smoldata_anim.gif)
+![Two little chicks](/media/smoldata_anim.gif)
