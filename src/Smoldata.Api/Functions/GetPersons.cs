@@ -14,7 +14,7 @@ namespace Smoldata.Functions
     {
         [FunctionName(nameof(GetPersons))]
         public static IActionResult Run(
-            [HttpTrigger(AuthorizationLevel.Function, "get", Route = "Person")] HttpRequest req,
+            [HttpTrigger(AuthorizationLevel.Function, "get", Route = "persons")] HttpRequest req,
             ILogger log)
         {
             var seed = req.GetSeed();
