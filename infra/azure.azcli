@@ -1,0 +1,10 @@
+az group create --name smoldata-rg --location westeurope
+
+az apim create --resource-group smoldata-rg --name smoldata-apim --sku-name Consumption --publisher-name SmolData --publisher-email email@adress --location westeurope
+
+az apim api create --api-id
+                   --display-name
+                   --path /
+                   --resource-group smoldata-rg
+                   --service-name smoldata-apim
+                   --api-type http
