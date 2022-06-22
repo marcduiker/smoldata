@@ -22,7 +22,7 @@ jobs:
     - name: 'Checkout GitHub Action'
       uses: actions/checkout@main
     - name: 'Login via Azure CLI'
-      uses: azure/login@v1.4.4
+      uses: azure/login@v1.4.5
       with:
         creds: ${{ secrets.AZURE_RBAC_CREDENTIALS }}
     - name: Setup .NET ${{ env.DOTNET_VERSION }} Environment
