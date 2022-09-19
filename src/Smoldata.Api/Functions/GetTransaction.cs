@@ -14,7 +14,7 @@ namespace Smoldata.Functions
     {
         [FunctionName(nameof(GetTransaction))]
         public static IActionResult Run(
-            [HttpTrigger(AuthorizationLevel.Function, "get", Route = "transactions")] HttpRequest req,
+            [HttpTrigger(AuthorizationLevel.Function, "get", Route = "transaction")] HttpRequest req,
             ILogger log)
         {
             var seed = req.GetSeed();
@@ -24,10 +24,10 @@ namespace Smoldata.Functions
             return new OkObjectResult(transactions);
         }
 
-        private static List<Api.Models.Transaction> GenerateTransactions(int seed, int count)
+        private static List<Models.Transaction> GenerateTransactions(int seed, int count)
         {
             Randomizer.Seed = new Random(seed);
-            var faker = new Faker<Api.Models.Transaction>()
+            var faker = new Faker<Models.Transaction>()
                 .RuleFor(u => u.BuyerAccount, f => f.Finance.Account())
                 .RuleFor(u => u.SellerAccount, f => f.Finance.Account())
                 .RuleFor(u => u.Currency, f => f.Finance.Currency().Code)

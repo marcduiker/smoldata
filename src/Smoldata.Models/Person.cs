@@ -1,4 +1,4 @@
-namespace Smoldata.Api.Models
+namespace Smoldata.Models
 {
     public class Person
     {

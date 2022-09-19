@@ -10,11 +10,11 @@ using Smoldata.ExtensionMethods;
 
 namespace Smoldata.Functions
 {
-    public static class GetPersons
+    public static class GetPerson
     {
-        [FunctionName(nameof(GetPersons))]
+        [FunctionName(nameof(GetPerson))]
         public static IActionResult Run(
-            [HttpTrigger(AuthorizationLevel.Function, "get", Route = "persons")] HttpRequest req,
+            [HttpTrigger(AuthorizationLevel.Function, "get", Route = "person")] HttpRequest req,
             ILogger log)
         {
             var seed = req.GetSeed();
@@ -24,10 +24,10 @@ namespace Smoldata.Functions
             return new OkObjectResult(persons);
         }
 
-        private static List<Api.Models.Person> GeneratePersons(int seed, int count)
+        private static List<Models.Person> GeneratePersons(int seed, int count)
         {
             Randomizer.Seed = new Random(seed);
-            var faker = new Faker<Api.Models.Person>()
+            var faker = new Faker<Models.Person>()
                 .RuleFor(u => u.FirstName, f => f.Name.FirstName())
                 .RuleFor(u => u.LastName, f => f.Name.LastName())
                 .RuleFor(u => u.Age, f => f.Random.Number(99));

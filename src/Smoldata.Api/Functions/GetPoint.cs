@@ -10,11 +10,11 @@ using Smoldata.ExtensionMethods;
 
 namespace Smoldata.Functions
 {
-    public static class GetPoints
+    public static class GetPoint
     {
-        [FunctionName(nameof(GetPoints))]
+        [FunctionName(nameof(GetPoint))]
         public static IActionResult Run(
-            [HttpTrigger(AuthorizationLevel.Function, "get", Route = "points")] HttpRequest req,
+            [HttpTrigger(AuthorizationLevel.Function, "get", Route = "point")] HttpRequest req,
             ILogger log)
         {
             var seed = req.GetSeed();
@@ -24,10 +24,10 @@ namespace Smoldata.Functions
             return new OkObjectResult(points);
         }
 
-        private static List<Api.Models.Point> GeneratePoints(int seed, int count)
+        private static List<Models.Point> GeneratePoints(int seed, int count)
         {
             Randomizer.Seed = new Random(seed);
-            var faker = new Faker<Api.Models.Point>()
+            var faker = new Faker<Models.Point>()
                 .RuleFor(u => u.X, f => f.Random.Double(-1, 1))
                 .RuleFor(u => u.Y, f => f.Random.Double(-1, 1));
 
